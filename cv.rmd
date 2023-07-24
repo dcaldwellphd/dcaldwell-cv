@@ -1,0 +1,106 @@
+---
+title: "David Caldwell's CV"
+author: David Caldwell
+date: "`r Sys.Date()`"
+params:
+  pdf_mode:
+    value: true
+output:
+  pagedown::html_resume:
+    css: ['dd_cv.css', 'resume']
+    self_contained: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(magrittr) # For the pipe
+source("cv_printing_functions.r")
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1n6WzjK4C9toC_GRNkOy8_7iclZ71CN8kD-aPtFsPYmQ",  
+  pdf_mode = params$pdf_mode
+)
+
+```
+
+
+```{r}
+# When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
+if(params$pdf_mode) {
+    cat("
+<style>
+:root{
+  --decorator-outer-offset-left: -6.5px;
+}
+</style>")
+}
+```
+
+
+Aside
+================================================================================
+
+
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-map-pin"></i> Sunnyvale, CA
+- <i class="fa fa-phone"></i> +1 (408) 480-7074
+- <i class="fa fa-envelope"></i> [dcaldwellphd\@gmail.com](mailto:dcaldwellphd@gmail.com){.email}
+- <i class="fa fa-linkedin"></i> [dcaldwellphd](https://www.linkedin.com/in/dcaldwellphd/)
+- <i class="fa fa-github"></i> [dcaldwellphd](https://www.github.com/dcaldwellphd/)
+
+--------------------------------------------------------------------------------
+
+Programming {#programming}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_skill_bars()
+```
+
+
+Software skills {#software}
+--------------------------------------------------------------------------------
+Power BI  |  Tableau  |  Shiny  |  Git  |  Quarto/Markdown  |  LaTeX  |  SPSS  |  Microsoft Office
+
+Research strengths {#research}
+--------------------------------------------------------------------------------
+
+Data Visualization  |  Statistical Modelling  |  Bayesian Inference  |  Multilevel Regression  |  Longitudinal Analysis  |  Causal Inference  |  Research Design  |  Machine Learning
+
+Professional qualities {#professional}
+--------------------------------------------------------------------------------
+Project Management  | Leadership  |  Communication  |  Writing  |  Collaboration  |  Presentations  |  Team Building
+
+
+Main
+================================================================================
+
+David Caldwell {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_text_block("intro") 
+```
+
+
+Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('experience')
+```
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('education')
+```
