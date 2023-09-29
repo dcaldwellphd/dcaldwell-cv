@@ -20,5 +20,4 @@ rmarkdown::render("cv.rmd",
 pagedown::chrome_print(input = tmp_html_cv_loc,
                        output = "cv.pdf")
 
-# creates pdf of cv
-source("C:/Users/dtcal/Dropbox/employment/cv/r-cv/render_cv.r")
+
