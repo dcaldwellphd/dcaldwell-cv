@@ -66,12 +66,12 @@ CV %>% print_skill_bars()
 
 Software skills {#software}
 --------------------------------------------------------------------------------
-Power BI  |  Tableau  |  Shiny  |  Git  |  Quarto/Markdown  |  LaTeX  |  SPSS  |  Microsoft Office
+Tableau  |  Shiny  |  Markdown  |  LaTeX  |  Git  |  SPSS  |  Microsoft Office  |  Google Workspace
 
 Research strengths {#research}
 --------------------------------------------------------------------------------
 
-Data Visualization  |  Statistical Modelling  |  Bayesian Inference  |  Multilevel Regression  |  Longitudinal Analysis  |  Causal Inference  |  Research Design  |  Machine Learning
+Data Visualization  |  Statistical Modelling  |  Bayesian Inference  |  Multilevel Regression  |  Longitudinal Analysis  |  Causal Inference  |  Research Design
 
 Professional qualities {#professional}
 --------------------------------------------------------------------------------
@@ -85,10 +85,10 @@ David Caldwell {#title}
 --------------------------------------------------------------------------------
 
 
-```{r}
+<!--```{r}
 # Note the special double pipe so we modify the CV object in place
 CV %<>% print_text_block("intro") 
-```
+```-->
 
 
 Experience {data-icon=suitcase}
@@ -103,4 +103,22 @@ Education {data-icon=graduation-cap data-concise=true}
 
 ```{r}
 CV %<>% print_section('education')
+```
+
+Service {data-icon=handshake-angle data-concise=true}
+--------------------------------------------------------------------------------
+```{r}
+CV %<>% print_section('service')
+```
+
+Writing {data-icon=pen-nib data-concise=true}
+--------------------------------------------------------------------------------
+```{r}
+CV %<>% print_section('writing')
+```
+
+Open source contributions {data-icon=laptop-code data-concise=true}
+--------------------------------------------------------------------------------
+```{r}
+CV %<>% print_section('software')
 ```
